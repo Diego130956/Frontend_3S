@@ -3,6 +3,22 @@
 {% block conteudo %}
 
 <h1>Operações Aritméticas</h1>
+<!-- Passo 2: Verifica se possui mensagem enviado pelo app -->
+<!-- Passo 3: definir with_categories=true caso queira ter acesso as categoria-->
+{% with messages = get_flashed_messages(with_categories=true) %}
+{% if messages %}
+<div class="flash-error px-3">
+    <!-- Passo 4: Percorrer a lista de mensagens -->
+    {% for category, message in messages %}
+    <!-- Passo 5: Cirar um card filho  -->
+    <div class="alert {{ category }} alert-dismissible fade show px-5" role="alert">
+        <strong>{{ message }}</strong>.
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {% endfor %}
+</div>
+{% endif %}
+{% endwith %}
 
 <div class="calculos">
 
@@ -21,13 +37,30 @@
 
             <p class="resultado">
                 {% if soma is defined %}
-                    {{ n1 }} + {{ n2 }} = {{ soma }}
+                {{ n1 }} + {{ n2 }} = {{ soma }}
                 {% else %}
                 {% endif %}
             </p>
 
             <button type="submit" class="btn btn-info">Somar</button>
         </form>
+        <div class="accordion" id="accordionExample">
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-warning" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                            <i class="bi bi-info-circle"></i> Como calcular?
+
+                    </button>
+                </h2>
+                <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                       <h4>Adição</h4>
+                        <p>Para somar é preciso de dois ou mais numeros</p>
+                    </div>
+                </div>
+            </div>
+        </div>
 
     </div>
     <div class="card_operacao">
@@ -45,13 +78,31 @@
 
             <p class="resultado">
                 {% if subtracao is defined %}
-                    {{ n1 }} - {{ n2 }} = {{ subtracao }}
+                {{ n1 }} - {{ n2 }} = {{ subtracao }}
                 {% else %}
                 {% endif %}
             </p>
 
             <button type="submit" class="btn btn-info">Subtrair</button>
         </form>
+        <div class="accordion" id="accordionExample1">
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-warning" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseThree1" aria-expanded="false" aria-controls="collapseThree1">
+                            <i class="bi bi-info-circle"></i> Como calcular?
+
+                    </button>
+                </h2>
+                <div id="collapseThree1" class="accordion-collapse collapse" data-bs-parent="#accordionExample1">
+                    <div class="accordion-body">
+                       <h4>Subtraçaõ</h4>
+                        <p>Para subtração é preciso de dois ou mais numeros,<br> e depois some eles até achar o resultado</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
 
     </div>
     <div class="card_operacao">
@@ -69,13 +120,32 @@
 
             <p class="resultado">
                 {% if multiplicacao is defined %}
-                    {{ n1 }} * {{ n2 }} = {{ multiplicacao }}
+                {{ n1 }} * {{ n2 }} = {{ multiplicacao }}
                 {% else %}
                 {% endif %}
             </p>
 
             <button type="submit" class="btn btn-info">Multiplicar</button>
         </form>
+        <div class="accordion" id="accordionExample2">
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-warning" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseThree2" aria-expanded="false" aria-controls="collapseThree2">
+                            <i class="bi bi-info-circle"></i> Como calcular?
+
+                    </button>
+                </h2>
+                <div id="collapseThree2" class="accordion-collapse collapse" data-bs-parent="#accordionExample2">
+                    <div class="accordion-body">
+                       <h4>Multiplicação</h4>
+                        <p>A multiplicação é baseada na adição repetida. Por exemplo,<br> multiplicar 4 por 3 (4 x 3) significa adicionar 4 três vezes (4 + 4 + 4).<br>
+                            Para entender a multiplicação de forma mais intuitiva, podemos usar <br>
+                            representações visuais, como grupos ou arrays.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
 
     </div>
     <div class="card_operacao">
@@ -93,12 +163,35 @@
 
             <p class="resultado">
                 {% if divisao is defined %}
-                    {{ n1 }} / {{ n2 }} = {{ divisao }}
+                {{ n1 }} / {{ n2 }} = {{ divisao }}
                 {% else %}
                 {% endif %}
             </p>
             <button type="submit" class="btn btn-info">Dividir</button>
         </form>
+        <div class="accordion" id="accordionExample3">
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-warning" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseThree3" aria-expanded="false" aria-controls="collapseThree3">
+                            <i class="bi bi-info-circle"></i> Como calcular?
+
+                    </button>
+                </h2>
+                <div id="collapseThree3" class="accordion-collapse collapse" data-bs-parent="#accordionExample3">
+                    <div class="accordion-body">
+                       <h4>Divisão</h4>
+                        <p>A divisão é a operação matemática utilizada <br>para descobrir como separar uma quantidade<br> em partes, ou seja, “fracionar” algo
+                            Por exemplo,.<br> podemos indicar uma divisão simples da seguinte forma:<br>
+
+                            3dividido por 1 = 3<br>
+                            4 : 2 = 2<br>
+                            5 / 5 = 1</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
 </div>
 {% endblock %}

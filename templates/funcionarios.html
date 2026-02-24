@@ -1,0 +1,99 @@
+{% extends 'base.html' %}
+
+{% block conteudo %}
+
+<h1>Funcionarios</h1>
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+    Cadastro de Novos Funcionarios
+</button>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">id</th>
+        <th scope="col">Nome</th>
+        <th scope="col">Data de nascimento</th>
+        <th scope="col">Cpf</th>
+        <th scope="col">E-mail</th>
+        <th scope="col">Cargo</th>
+        <th scope="col">Salário</th>
+    </tr>
+    </thead>
+    <th scope="row">1</th>
+    <tbody>
+    {% for i in resultado %}
+    <tr>
+        <td>{{ i.id }}</td>
+        <td>{{ i.nome }}</td>
+        <td>{{ i.data_nascimeto }}</td>
+        <td>{{ i.cpf }}</td>
+        <td>{{ i.email }}</td>
+        <td>{{ i.cargo }}</td>
+        <td>{{ i.salario }}</td>
+
+    </tr>
+    {% endfor %}
+
+    </tbody>
+
+
+    <td><a href=""><i class="bi bi-pencil"></i></a><a href=""><i class="bi bi-trash text-danger"></i></a></td>
+
+</table>
+
+
+<!-- Button trigger modal -->
+
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+     aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="staticBackdropLabel"></h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form class="card_login" action="{{ url_for('cadastro_funcionario') }}" method="post">
+                    <div class="card_login">
+                        <h1>CADASTRO</h1>
+
+                        Nome:
+                        <input type="text" placeholder="Digite seu nome" name="form_nome" class="form-control"><br>
+                        data de nascimeto:
+                        <input type="date" placeholder="Digite a Senha" name="form_data" class="form-control"
+                               required><br>
+                        CPF:
+                        <input type="number" placeholder="Digite a Senha" name="form_cpf" class="form-control"
+                               required><br>
+                        Email:
+                        <input type="text" placeholder="Digite o Email" name="form_email" class="form-control"><br>
+                        Senha:
+                        <input type="password" placeholder="Digite a Senha" name="form_senha" class="form-control"
+                               required><br>
+                        cargo:
+                        <input type="text" placeholder="Digite a Senha" name="form_cargo" class="form-control"
+                               required><br>
+                        Salario:
+                        <input type="number" placeholder="Digite a Senha" name="form_salario" class="form-control"
+                               required><br>
+                        <button type="submit" class="btn btn-info">Cadastrar</button>
+                        <br>
+                        {% if session.Funcionario %}
+                        {% else %}
+                        <a href="/login">Login</a>
+                        {% endif %}
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="bi bi-trash text-danger" data-bs-dismiss="modal">Fechar</button>
+        </div>
+
+    </div>
+</div>
+
+
+{% endblock %}

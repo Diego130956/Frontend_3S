@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block conteudo %}
+
+<form action="{{url_for('cadastro_funcionario')}}" method="post">
+            <label>
+                nome:
+                <input type="text" name="form_nome">
+            </label>
+            <label>
+                Data nascimeto:
+                <input type="date" name="form_data">
+            </label>
+            <label>
+                cpf:
+                <input type="text" name="form_cpf">
+            </label>
+            <label>
+                email:
+                <input type="text" name="form_email">
+            </label>
+            <label>
+                senha:
+                <input type="password" name="form_senha">
+            </label>
+            <label>
+                Cargo:
+                <input type="text" name="form_cargo">
+            </label>
+            <label>
+                Salário:
+                <input type="number" name="form_salario">
+            </label>
+
+
+
+
+    <button type="submit">Cadastrar</button>
+</form>
+<a href="{{ url_for('login') }}">Já tem conta?Volte ao login</a><br><br>
+{% endblock %}
