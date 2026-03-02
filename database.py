@@ -1,7 +1,7 @@
 #importar biblioteca
 
-from flask_login import UserMixin, login_manager
-from sqlalchemy import create_engine, String, Integer, func, Column, DateTime, ForeignKey
+from flask_login import UserMixin
+from sqlalchemy import create_engine, String, Integer, func, Column, DateTime, ForeignKey, Float
 from sqlalchemy.orm import sessionmaker, declarative_base, scoped_session
 from sqlalchemy.exc import SQLAlchemyError
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -24,9 +24,9 @@ class Funcionario(Base, UserMixin):
     data_nascimeto = Column(String, nullable=False)
     cpf = Column(String, nullable=False, unique=True)
     email = Column(String, nullable=False, unique=True)
-    senha = Column(String(255), nullable=False)
+    senha = Column(String, nullable=False)
     cargo = Column(String, nullable=False)
-    salario = Column(String, nullable=False)
+    salario = Column(Float, nullable=False)
 
 
 
@@ -49,4 +49,3 @@ class Funcionario(Base, UserMixin):
             db_session.rollback()
             raise
 
-Base.metadata.create_all(engine)

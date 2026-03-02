@@ -2,7 +2,7 @@ from flask import Flask, flash, render_template, url_for, request, redirect
 from sqlalchemy.exc import SQLAlchemyError
 
 from database import db_session, Funcionario
-from sqlalchemy import select
+from sqlalchemy import select, Float
 from flask_login import LOGIN_MESSAGE, login_user, logout_user, current_user, LoginManager, login_required
 
 app = Flask(__name__)
@@ -43,13 +43,14 @@ def login():
         email = request.form.get('form_email')
         senha = request.form.get('form_senha')
 
-        # Se campos vazios
+
         if not email or not senha:
             flash('Preencher todos os campos!', 'danger')
             return render_template("login.html")
+        else:
+            verificar_email = select(Funcionario).where(Funcionario.email == email)
+            resultado_email = db_session.execute(verificar_email).scalar_one_or_none()
 
-        verificar_email = select(Funcionario).where(Funcionario.email == email)
-        resultado_email = db_session.execute(verificar_email).scalar_one_or_none()
 
         # Usuário não existe
         if resultado_email is None:
@@ -66,7 +67,7 @@ def login():
         flash('Login efetuado com sucesso!', 'success')
         return redirect(url_for('home'))
 
-    # GET sempre retorna
+
     return render_template("login.html")
 
 
@@ -74,7 +75,7 @@ def login():
 def logout():
     logout_user()
     flash('Logout efetuado com sucesso!', 'success')
-    return redirect(url_for('login'))
+    return redirect(url_for('home'))
 
 
 
