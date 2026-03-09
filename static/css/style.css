@@ -172,8 +172,9 @@ a {
 }
 
 .carrossel {
-    height: 100vh;
+    height: 137vh;
 }
+
 
 .title-senai{
     font-family: "DejaVu Sans Mono", serif;
@@ -187,4 +188,21 @@ a {
     display: flex;
     width: 100%;
     height: 100vh;
+    background-color: indianred;
 }
+
+.curso-text{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 50px;
+    font-family: 'Consolas', 'Menlo', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', monospace;
+    font-size: 16.6px;
+}
+.curso-text h1{
+    font-family: "Bitstream Vera Sans Mono", serif;
+    font-size: 58px;
+}
+
+

@@ -1,44 +1,73 @@
 {% extends 'base.html' %}
 
 {% block conteudo %}
-<div class="carrossel d-flex overflow-hidder" >
+<div class="carrossel d-flex overflow-hidder">
     <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
-    <div class="carousel-inner">
-        <div class="carousel-item active bg-dark" data-bs-interval="2000">
-            <img src="/static/img/carousel-1.jpg" class="d-block w-100 opacity-50" alt="...">
+        <div class="carousel-inner">
+            <div class="carousel-item active bg-dark" data-bs-interval="2000">
+                <img src="/static/img/carousel-1.jpg" class="d-block w-100 opacity-50" alt="...">
+            </div>
+            <div class="carousel-item bg-dark" data-bs-interval="2000">
+                <img src="/static/img/carousel-2.jpg" class="d-block w-100 opacity-50" alt="...">
+            </div>
+            <div class="carousel-item bg-dark" data-bs-interval="2000">
+                <img src="/static/img/carousel-3.jpg" class="d-block w-100 opacity-50" alt="...">
+            </div>
         </div>
-        <div class="carousel-item bg-dark" data-bs-interval="2000">
-            <img src="/static/img/carousel-2.jpg" class="d-block w-100 opacity-50" alt="...">
-        </div>
-        <div class="carousel-item bg-dark" data-bs-interval="2000">
-            <img src="/static/img/carousel-3.jpg" class="d-block w-100 opacity-50" alt="...">
-        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval"
+                data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval"
+                data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
     </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-    </button>
-</div>
-    <div class="w-100 h-100 position-absolute d-flex flex-column justify-content-evenly" >
-        <p class="title-senai text-white display-1 text-center">Capacitação profissional na indústria</p>
+    <div class="w-100 h-100 position-absolute d-flex flex-column justify-content-evenly">
+        <p class="title-senai text-white display-1 text-center">Aulas particulares para sua saúde</p>
         <p class="subtitle-senai text-white display-6 text-center">Confira os nossos cursos Profissionalizantes</p>
     </div>
 
 </div>
 
 <div class="cursos">
-    <div class="curso-text col-8">
-        <p>Descrição</p>
-    </div>
-    <div class="curso-img bg-dark col-4 " >
-        <img src="/static/img/carousel-4.jpg" class="w-100 h-100>
-    </div>
-</div>
 
+
+    <div class="curso-text col-8">
+        <h1>Aulas de boxe</h1><br>
+        <p>As aulas de boxe combinam aquecimento, técnicas de socos e defesas, exercícios funcionais<br>
+            e prática simulada de combate, promovendo condicionamento físico, disciplina,<br>
+            autoconfiança e respeito ao próximo. Estrutura Geral da Aula Uma aula típica de<br>
+            boxe inicia com um aquecimento, que dura de 10 a 20 minutos, combinando corrida leve,<br>
+            saltos de corda, polichinelos e alongamentos dinâmicos para preparar o corpo, aumentar <br>
+            a mobilidade articular e prevenir lesões. Em algumas escolas,também se incluem<br>
+             exercícios de força e pranchas para fortalecimento muscular profundo.</p>
+    </div>
+    <div class="curso-img bg-dark col-4 ">
+        <img src="/static/img/carousel-4.jpg" class="w-100 h-100">
+    </div>
+
+</div>
+<div class="cursos">
+
+    <div class="curso-img bg-dark col-4 ">
+        <img src="/static/img/calistenia.jpg" class="w-100 h-100">
+    </div>
+    <div class="curso-text col-8">
+        <h1>Aulas de calistenia </h1><br>
+        <p>
+            A calistenia é uma modalidade de treino que utiliza o peso do próprio corpo para desenvolver<br>
+            força, resistência, flexibilidade e coordenação, podendo ser praticada em qualquer lugar e<br>
+            adaptada a diferentes níveis de condicionamento físico Treino Mestre +2.As aulas de calistenia<br>
+            geralmente seguem um treino progressivo, adaptando a dificuldade conforme a evolução do praticante.<br>
+            Podem incluir exercícios básicos, como: flexões, pranchas e agachamentos Abdominais e elevação<br>
+            pélvica Polichinelos e apoio de braço</p>
+
+    </div>
+
+</div>
 
 
 {% endblock %}
