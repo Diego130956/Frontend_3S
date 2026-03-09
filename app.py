@@ -36,6 +36,10 @@ def load_user(user_id):
     resultado = db_session.execute(user).scalar_one_or_none()
     return resultado
 
+@app.route('/animais')
+def animais():
+    return render_template('animais.html')
+
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
